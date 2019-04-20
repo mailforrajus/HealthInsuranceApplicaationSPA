@@ -1,0 +1,92 @@
+<form [formGroup]="dataCollectionInfo">
+  <div>
+    <table>
+      <tr>
+        <td><a (click)="gotoDiv(1)">1</a></td>
+        <td><a (click)="gotoDiv(2)">2</a></td>
+        <td><a (click)="gotoDiv(3)">3</a></td>
+        <td><a (click)="gotoDiv(4)">4</a></td>
+        <td><a (click)="gotoDiv(5)">5</a></td>
+        <td><a (click)="gotoDiv(6)">6</a></td>
+      </tr>
+      <tr>
+        <td>Personal Info</td>
+        <td>Address</td>
+        <td>Academic Goals</td>
+        <td>Education Background</td>
+        <td>Background</td>
+        <td>Tution Methods</td>
+      </tr>
+    </table>
+  </div>
+  <div *ngIf="res==1">
+    <h3>Personal Info</h3>
+    <div>
+      <label>First Name</label>
+      <input type="text" frommControlName="firstName">
+    </div>
+    <div>
+      <label>Last Name</label>
+      <input type="text" frommControlName="lastName">
+    </div>
+
+  </div>
+
+  <div *ngIf="res==2">
+
+    <h3>Address</h3>
+    <div>
+      <label>City Name</label>
+      <input type="text" frommControlName="cityName">
+    </div>
+    <div>
+      <label>Street Name</label>
+      <input type="text" frommControlName="streetName">
+    </div>
+
+  </div>
+  <div *ngIf="res==3">
+    <h3>Academic Goals</h3>
+    <div>
+      <label>Primary Academic Goal</label>
+      <input type="text" frommControlName="primaryAcademicGoal">
+    </div>
+  </div>
+  <div *ngIf="res==4">
+    <h3>Education Background</h3>
+    <div>
+      <label>Education Details</label>
+      <input type="text" frommControlName="educationBackGround">
+    </div>
+  </div>
+
+  <div *ngIf="res==5">
+    <h3>Background</h3>
+    <div>
+      <label>Family Background</label>
+      <input type="text" frommControlName="familyBackGround">
+    </div>
+  </div>
+  <div *ngIf="res==6">
+    <h3>Tution Methods</h3>
+    <div>
+      <label>Tution Methods</label>
+      <input type="text" frommControlName="tutinMethods">
+    </div>
+  </div>
+  <br>
+  <span *ngIf="res>1">
+    <a (click)="gotoDiv(res-1)">Previous</a>
+  </span>
+  &nbsp;&nbsp;
+  <span *ngIf="res<6">
+    <a (click)="gotoDiv(res+1)">Next</a>
+  </span>
+  &nbsp;&nbsp;
+  <span>
+    <span *ngIf="res==6">
+      <button (click)="submitData()">Submit Data</button>
+    </span>
+  </span>
+</form>
+<p>{{dataCollectionInfo | json}}</p>

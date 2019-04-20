@@ -1,0 +1,90 @@
+<div class="contaner">
+  <h3 appMyColor>Caseworker Registration Page</h3>
+  <p *ngIf="saveFormResult">Successfullyregistereed</p>
+  <form [formGroup]="caseworkerRegistrationData" (ngSubmit)="register()">
+    <!--First Name-->
+    <div class="form-group">
+      <label>First Name</label>
+      <input type="text" formControlName="firstName">
+      <span *ngIf="caseworkerRegistrationData.controls['firstName'].hasError('required')">
+        Please enter a name.
+      </span>
+
+    </div>
+
+    <!--Last Name -->
+    <div class="form-group">
+      <label>Last Name</label>
+      <input type="text" formControlName="lastName">
+      <span *ngIf="caseworkerRegistrationData.controls['lastName'].hasError('required')">
+        Please enter a name.
+      </span>
+
+    </div>
+
+    <!--Email Id -->
+    <div class="form-group">
+      <label>Email Id</label>
+      <input type="text" formControlName="email" (focusout)="emailIdValidationCheck($event)">
+      <span *ngIf="caseworkerRegistrationData.controls['email'].hasError('required')">
+        Please Enter Email Id.
+      </span>
+      <span *ngIf=" !caseworkerRegistrationData.controls['email'].hasError('required') && emailFoundStatus">
+        Email is already exists..
+      </span>
+      
+
+    </div>
+
+    <!-- Password -->
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" formControlName="pwd">
+      <span *ngIf="caseworkerRegistrationData.controls['pwd'].hasError('required')">
+        Please enter Password.
+      </span>
+      <span *ngIf="caseworkerRegistrationData.controls['pwd'].hasError('minlength')">
+        Password Must be atleast 5 characters long.
+      </span>
+      <span *ngIf="caseworkerRegistrationData.controls['pwd'].hasError('maxlength')">
+        Password cannot exceed 8 characters.
+      </span>
+    </div>
+
+    <!--Date Of Birth-->
+    <div class="form-group">
+      <label>Date Of Birth</label>
+      <input type="date" formControlName="dob" [max]="maxDateOfBirth">
+      <span *ngIf="caseworkerRegistrationData.controls['dob'].hasError('required')">
+        Date of Birth is required.
+      </span>
+    </div>
+
+    <!--Phone Number Details-->
+    <div class="form-group">
+      <label>Phone Number</label>
+      <input type="number" formControlName="phno">
+      <span *ngIf="caseworkerRegistrationData.controls['phno'].hasError('required')">
+        Phone number is required.
+      </span>
+      <span *ngIf="caseworkerRegistrationData.controls['phno'].hasError('pattern')">
+        Phone number must be 10 numbers.
+      </span>
+
+    </div>
+    <div class="form-group">
+      <label>Select Role Here</label>
+      <select formControlName="userRole">
+        <option *ngFor="let role of userRoles" [value]="role.roleName">{{role.roleName}}</option>
+      </select>
+     <span *ngIf="caseworkerRegistrationData.controls['userRole'].hasError('required')">
+       User role is required.
+      </span>
+
+    </div>
+    <div>
+      <input type="reset" value="Reset" class="btn btn-success"> &nbsp;&nbsp;&nbsp;
+      <input type="submit" value="Register" [disabled]="!caseworkerRegistrationData.valid" class="btn btn-success">
+    </div>
+  </form>
+</div>

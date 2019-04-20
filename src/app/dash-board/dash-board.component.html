@@ -1,0 +1,61 @@
+<title>Health Insurance Application</title>
+
+<body>
+  <div class="dropdown">
+    <button class="dropbtn">Application Registration</button>
+    <div class="dropdown-content">
+      <a [routerLink]="['/registerApplication']">Register Application</a>
+      <a [routerLink]="['/searchApplicationsDetails']">Search Applications</a> </div>
+  </div>
+  <div class="dropdown">
+    <button class="dropbtn">Data Collection</button>
+    <div class="dropdown-content">
+      <a [routerLink]="['/collectData']">Collect Data</a> <a [routerLink]="['/searchCases']">Search Cases</a>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <button class="dropbtn">Determine Eligibility</button>
+    <div class="dropdown-content">
+      <a [routerLink]="['/eligibilityDetermination']">Eligibility Results</a>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <button class="dropbtn">Correspondence</button>
+    <div class="dropdown-content">
+      <a [routerLink]="['/viewPendingNotices']">View Pending Notice(s)</a> <a [routerLink]="['/viewHistoryNotices']">View
+        History
+        Notices</a>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <button class="dropbtn">Reports</button>
+    <div class="dropdown-content">
+      <a [routerLink]="['/generateReports']">Generate Report</a>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <button class="dropbtn">Profile</button>
+    <div class="dropdown-content">
+      <a [routerLink]="['/viewProfileDetails']">View Profile</a> <a [routerLink]="['/editProfileDetails']">Edit Profile</a>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <button class="dropbtn">Admin</button>
+    <div class="dropdown-content">
+      <a [routerLink]="['/']">Create Case Worker</a> <a [routerLink]="['/viewCaseWorker']">View Case Workers</a>
+    </div>
+  </div>
+  <div class="dropdown">
+      <button class="dropbtn">LogIn</button>
+      <div class="dropdown-content">
+        <a [routerLink]="['/login']">Login</a>
+      </div>
+    </div>
+  
+</body>
+<router-outlet></router-outlet>

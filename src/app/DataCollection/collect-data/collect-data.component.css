@@ -1,0 +1,10 @@
+a{
+    cursor: pointer;
+    border: 2px solid red;
+    border-radius: 50%;
+    padding: 5px;
+}
+td{
+    text-align: center;
+    padding: 5px;
+}

@@ -1,0 +1,19 @@
+
+<div *ngIf="logInStatus" style="color: red">
+    Log in successful
+    </div>
+    <form [formGroup]="logInInfo" (ngSubmit)="login()">
+      <div>
+        <label>Email Id</label>
+        <input type="text" formControlName="userName">
+        <span *ngIf="logInInfo.controls['userName'].hasError('required')">Please enter Username</span>
+      </div>
+      <div>
+        <label>Password</label>
+        <input type="password" formControlName="password">
+        <span *ngIf="logInInfo.controls['password'].hasError('required')">Please enter password</span>
+      </div>
+      <div>
+        <input type="submit" value="Submit" [disabled]="!logInInfo.valid">
+      </div>
+    </form>
